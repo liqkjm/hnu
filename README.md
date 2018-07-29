@@ -21,3 +21,45 @@ CApath: none
 
 3. 提交代码   
 先pull更新代码再提交到远程仓库。
+
+### 后台接口
+
+#### 测试接口
+
+1. 获取单个JSON数据
+
+- 接口地址：http://111.230.55.56:8088/test/getOne
+- 请求方式：GET
+- 请求结果示例：
+```
+{
+	"id":1,
+	"name":"Amy",
+	"msg":"She is a bad girl"
+}
+```
+
+2. 获取json数组
+
+- 接口地址：http://111.230.55.56:8088/test/getList
+- 请求方式：GET
+- 请求结果示例：
+```
+[{
+	"id":1,
+	"name":"Amy",
+	"msg":"She is a bad girl"
+	},{
+	"id":2,
+	"name":"Tom",
+	"msg":"Tom is a bad boy"
+	},{
+	"id":3,
+	"name":"Tony",
+	"msg":"Tony is a shy boy"
+	},{
+	"id":4,
+	"name":"Lee",
+	"msg":"Lee is a cool girl"
+}]
+```
