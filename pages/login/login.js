@@ -1,66 +1,76 @@
-// pages/login/login.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    name: '',
+    password: '',
+    response: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  // 获取输入账号
+  phoneInput: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  // 获取输入密码
+  passwordInput: function (e) {
+    this.setData({
+      password: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+  // 登录
+  login: function () {
+    var that = this
+    if (this.data.name.length == 0 || this.data.password.length == 0) {
+      wx.showToast({
+        title: '用户名和密码不能为空',
+        icon: 'loading',
+        duration: 2000
+      })
+    } else {
+      //请求服务器 --测试GET请求
+      wx.request({
+        url: 'http://111.230.55.56:8088/test/getOne',
+        method: "GET",
+        // data: {
+        //   name: this.data.name,
+        //   password: this.data.password,
+        // },
+        success: function (res) {
+          console.log(res.data)
+          // that.setData({
+          //   response: res
+          // })
+          wx.showModal({
+            title: '请求测试成功',
+            content: '请求到的数据在终端Console中查看',
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+          // wx.showToast({
+          //   title: '请求测试成功',
+          //   icon: "success", //图标
+          //   duration: 2000
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+          // })
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+        },
+        fail: function () {
+          wx.showToast({
+            title: '服务器请求失败',
+            icon: "loading",
+            duration: 4000,
+          })
+        }
+      })
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    }
   }
 })
