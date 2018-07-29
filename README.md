@@ -3,25 +3,40 @@
 ## 简介
 校园服务类微信小程序，包括校内个人信息查询，二手市场，失物招领等功能。
 
+## 需求文档
+- 需求在路上，初步实现首页，登录/绑定静态页面
+- 效果图：暂无，
+
 ## 开发
 ### 项目导入
 
 1. 使用git，clone此项目：
-> GitHub：git clone https://github.com/zosurn/hnu.git  
-> ~~码云：git clone https://gitee.com/liqkjm/hnu.git~~
-```
-可能遇到问题：fatal: unable to access 'https://github.com/konsumer/arduinoscope.git/': error setting certificate verify locations:
-CAfile: D:\Program Files\Git\mingw64/bin/curl-ca-bundle.crt
-CApath: none
+- 使用git Bash：
+  > GitHub：git clone https://github.com/zosurn/hnu.git  
+  > ~~码云：git clone https://gitee.com/liqkjm/hnu.git~~
+  ```
+  可能遇到问题：fatal: unable to access 'https://github.com/konsumer/arduinoscope.git/': error setting certificate verify locations:
+  CAfile: D:\Program Files\Git\mingw64/bin/curl-ca-bundle.crt
+  CApath: none
 
-解决办法：git config --global http.sslVerify false
-```
+  解决办法：git config --global http.sslVerify false
+  ```
+- 使用GitHub桌面版
+  点击clone
+
 2. 使用微信小程序开发工具打开此项目目录（开发工具会自动填上APPID?）   
 > 我的AppID(小程序ID)： `wxbdefe3df68d669e2`
 
 3. 提交代码   
-先pull更新代码再提交到远程仓库。
 
+- 可以使用git终端提交：
+~~  git status
+  git pull
+  git add -A
+  git commit -m "提交内容注释"
+  git push  //推送到远程仓库~~
+- 或者使用GitHub桌面版：
+	点击提交，更新
 ### 后台接口
 
 #### 测试接口
@@ -63,3 +78,8 @@ CApath: none
 	"msg":"Lee is a cool girl"
 }]
 ```
+
+#### 接口测试
+
+1. 关闭HTTPS域名校验（小程序开发界面右侧详情中项目设置，给最下面一行不校验域名...勾上）
+2. 接口测试demo见login页面，随便输入账号和密码之后，点击登录（无登录作用），可请求到第一个测试接口`getOne`描述的数据。请求结果作为日志打印在终端中。
