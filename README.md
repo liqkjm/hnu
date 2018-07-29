@@ -7,7 +7,7 @@
 ### 项目导入
 
 1. 使用git，clone此项目：
-> GitHub：git clone https://github.com/zosurn/hnu
+> GitHub：git clone https://github.com/zosurn/hnu.git  
 > 码云：git clone https://gitee.com/liqkjm/hnu.git
 ```
 可能遇到问题：fatal: unable to access 'https://github.com/konsumer/arduinoscope.git/': error setting certificate verify locations:
